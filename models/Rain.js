@@ -56,4 +56,4 @@ const RainSchema = new mongoose.Schema({
   _id: String
 });
 
-export default mongoose.models.Rain || mongoose.model('rain', RainSchema)
+export default mongoose.models.Rain || mongoose.model('rains', RainSchema)
