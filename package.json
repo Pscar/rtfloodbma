@@ -8,6 +8,7 @@
     "start": "next start -p 3030"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "mongoose": "^5.12.14",
     "next": "10.2.3",
     "react": "17.0.2",

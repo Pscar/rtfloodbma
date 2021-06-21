@@ -78,4 +78,4 @@ const WaterSchema = new mongoose.Schema({
   _id: String
 });
 
-export default mongoose.models.Water || mongoose.model('waters', WaterSchema);
+export default mongoose.models.Water || mongoose.model('Water', WaterSchema);
