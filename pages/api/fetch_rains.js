@@ -4,34 +4,33 @@ import Rain from '../../models/Rain';
 
 const get_rain = async () => {
   try {
-    //response
+
     const req = axios.get('http://api2.thaiwater.net:9200/api/v1/thaiwater30/public/rain_24h');
     const res = await req;
     const datas = res.data.data;
-    //filter
+
     let data = datas.filter(data => data.geocode.amphoe_name.th === 'ทุ่งสง');
-    //gen _id object
+
     for (let item of data) {
       item._id = `${item.id}_${item.station.id}`;
     }
-    // data filter + gen_id object
+
     return data;
   } catch (error) {
     console.log(error)
   }
 
 }
-// documents array
 const update_rain = async () => {
-  let get_rains = await get_rain()
+
+  let get_rains = await get_rain();
+
   for (let item of get_rains) {
-    // console.log("data => ",item)
     const res_rains = await Rain.updateOne({ _id: item._id }, item, { upsert: true });
-    // console.log(res.n);
-    // console.log(res.nModified);
     res_rains.n;
     res_rains.nModified;
   }
+  
   return get_rains
 }
 

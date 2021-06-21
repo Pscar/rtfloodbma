@@ -4,7 +4,7 @@ import Water from '../../models/Water';
 
 const get_water = async () => {
   try {
-    //response
+    
     const req = axios.get('http://api2.thaiwater.net:9200/api/v1/thaiwater30/public/waterlevel_load');
     const res = await req;
     const datas = res.data.waterlevel_data.data;
@@ -25,10 +25,7 @@ const update_water = async () => {
   let get_waters = await get_water()
 
   for (let item of get_waters) {
-    // console.log("data => ",item)
     const res = await Water.updateOne({ _id: item._id }, item, { upsert: true });
-    // console.log(res.n);
-    // console.log(res.nModified);
     res.n;
     res.nModified;
   }
