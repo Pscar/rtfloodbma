@@ -1,10 +1,10 @@
 import axios from 'axios';
-import dbConnect from '../../utils/dbConnect';
-import Water from '../../models/Water';
+import dbConnect from '../../../utils/dbConnect';
+import Water from '../../../models/Water';
 
 const get_water = async () => {
   try {
-    
+
     const req = axios.get('http://api2.thaiwater.net:9200/api/v1/thaiwater30/public/waterlevel_load');
     const res = await req;
     const datas = res.data.waterlevel_data.data;

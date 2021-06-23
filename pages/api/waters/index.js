@@ -1,6 +1,5 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import dbConnect from '../../utils/dbConnect';
-import Rain from '../../models/Rain';
+import dbConnect from '../../../utils/dbConnect';
+import Water from '../../../models/Water';
 
 export default async function handler(req, res) {
   const { method } = req
@@ -10,9 +9,8 @@ export default async function handler(req, res) {
   switch (method) {
     case 'GET':
       try {
-        /* find all the data in our database */
-        const rains = await Rain.find({})
-        res.status(200).json({ success: true, data: rains })
+        const waters = await Water.find({}) /* find all the data in our database */
+        res.status(200).json({ success: true, data: waters })
       } catch (error) {
         res.status(400).json({ success: false })
       }

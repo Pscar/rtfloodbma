@@ -1,6 +1,6 @@
 import axios from 'axios';
-import dbConnect from '../../utils/dbConnect';
-import Rain from '../../models/Rain';
+import dbConnect from '../../../utils/dbConnect';
+import Rain from '../../../models/Rain';
 
 const get_rain = async () => {
   try {
