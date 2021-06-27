@@ -69,16 +69,20 @@ async function data_to_jsons() {
 
   const center = { latitude: data_center[0].latitude[0], longitude: data_center[0].longitude[0] }
   const boundary = data_bon
-  const input = { rains: "", waters: "", dem: "" }
-  const myObj = { input, center_of_map: center, polygons: data_poly, boundary };
+  const inputs = { rains: {}, waters: {}, dem: {} }
+  const myObj = { input: inputs, center_of_map: center, polygons: data_poly, boundary };
 
-  for (let item of Object.keys(myObj)) {
-    let kmls = myObj[item];
-    const res_kmls = await Kml.updateOne({}, kmls, { upsert: true });
-    res_kmls.n;
-    res_kmls.nModified;
-    return res_kmls
-  }
+  const res_kmls = await Kml.updateOne({}, myObj, { upsert: true });
+  res_kmls.n;
+  res_kmls.nModified;
+  return res_kmls;
+  // for (let item of Object.keys(myObj)) {
+  //   let kmls = myObj[item];
+  //   const res_kmls = await Kml.updateOne({}, kmls, { upsert: true });
+  //   res_kmls.n;
+  //   res_kmls.nModified;
+  //   return res_kmls
+  // }
 }
 export default async function handler(req, res) {
   const { method } = req
