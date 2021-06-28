@@ -1,13 +1,19 @@
 import mongoose from 'mongoose'
 
 const KmlSchema = new mongoose.Schema({
+  _id: Number,
+  input: {
+    rains: Object,
+    waters: Object,
+    dem: Object
+  },
   center_of_map: {
     longitude: String,
     latitude: String,
   },
   polygons: {
     name: String,
-    coordinate: [
+    coordinates: [
       {
         longitude: String,
         latitude: String,
@@ -15,9 +21,12 @@ const KmlSchema = new mongoose.Schema({
     ]
   },
   boundary: {
-    longitude: String,
-    latitude: String,
+    coordinates: [
+      {
+        longitude: String,
+        latitude: String,
+      }
+    ]
   },
-  _id: String
 });
 module.exports = mongoose.models.Kml || mongoose.model('Kml', KmlSchema)

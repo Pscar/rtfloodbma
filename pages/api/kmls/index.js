@@ -9,7 +9,6 @@ export default async function handler(req, res) {
   switch (method) {
     case 'GET':
       try {
-        /* find all the data in our database */
         const kmls = await Kml.find({})
         res.status(200).json({ success: true, data: kmls })
       } catch (error) {
