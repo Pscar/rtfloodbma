@@ -14,7 +14,7 @@ const get_water = async () => {
     for (let item of data) {
       item._id = `${item.id}_${item.station.id}`;
     }
-
+    // console.log(data);
     return data;
 
   } catch (error) {

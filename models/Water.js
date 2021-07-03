@@ -1,29 +1,28 @@
 import mongoose from 'mongoose'
 
 const WaterSchema = new mongoose.Schema({
-  waterlevel_data: {
-    id: String,
-    waterlevel_datetime: String,
-    waterlevel_m: String,
-    waterlevel_msl: String,
-    flow_rate: String,
-    discharge: String,
-    storage_percent: String,
-    sort_order: String,
-    station_type: String,
-    situation_level: String,
-  },
+  id: String,
+  waterlevel_datetime: String,
+  waterlevel_m: String,
+  waterlevel_msl: String,
+  waterlevel_msl_previous: String,
+  flow_rate: String,
+  discharge: String,
+  storage_percent: String,
+  sort_order: String,
+  station_type: String,
+  situation_level: String,
   agency: {
     id: String,
     agency_name: {
       th: String,
       en: String,
-      jp: String,
+      jp: String
     },
     agency_shortname: {
       th: String,
       en: String,
-      jp: String,
+      jp: String
     }
   },
   basin: {
@@ -31,14 +30,15 @@ const WaterSchema = new mongoose.Schema({
     basin_code: String,
     basin_name: {
       th: String,
-      en: String,
+      en: String
     }
   },
   station: {
     id: String,
     tele_station_name: {
-      th: String,
       en: String,
+      th: String,
+      jp: String
     },
     tele_station_lat: String,
     tele_station_long: String,
@@ -52,7 +52,7 @@ const WaterSchema = new mongoose.Schema({
     sub_basin_id: String,
     agency_id: String,
     geocode_id: String,
-    is_key_station: false,
+    is_key_station: String,
     warning_level_m: String,
     critical_level_m: String,
     critical_level_msl: String
@@ -60,22 +60,22 @@ const WaterSchema = new mongoose.Schema({
   geocode: {
     area_code: String,
     area_name: {
-      th: String,
+      th: String
     },
     amphoe_code: String,
     amphoe_name: {
-      th: String,
+      th: String
     },
     tumbon_code: String,
     tumbon_name: {
-      th: String,
+      th: String
     },
     province_code: String,
     province_name: {
-      th: String,
+      th: String
     }
   },
-  _id: String
+  _id: String,
 });
 
 export default mongoose.models.Water || mongoose.model('Water', WaterSchema);
