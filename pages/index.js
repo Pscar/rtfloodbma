@@ -4,21 +4,21 @@ import styles from "../styles/Home.module.css";
 import MyComponent from "../pages/simple_polygon.js";
 import axios from "axios";
 import { useState, useEffect } from "react";
-
 const Home = () => {
   const [kmls, setKmls] = useState([]);
 
-  async function fetchKmls() {
-    const response = await axios.get("http://localhost:3000/api/kmls");
-    const kmlData = await response.data.data;
-    setKmls(kmlData);
-  }
 
   useEffect(() => {
+    const fetchKmls = async () => {
+      const response = await axios.get("http://localhost:3000/api/kmls");
+      const kmlData = await response.data.data;
+      setKmls(kmlData);
+    }
     fetchKmls();
   }, []);
 
   const listArray = kmls.map((kml) => kml);
+  console.log(listArray)
   // const items = kmls.slice(0, 10);
   // console.log("222222", items);
 
