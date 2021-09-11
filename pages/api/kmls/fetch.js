@@ -138,9 +138,8 @@ const writeXmltoJson = async (xml, random) => {
 };
 
 const data_Json = async (myObj, random) => {
-  const res_kmls = await Kml.updateOne({ _id: random }, myObj, { upsert: true });
-  res_kmls.n;
-  res_kmls.nModified;
+  const res_kmls = await Kml.collection.insertOne({ id: random, data: myObj });
+  return res_kmls
 };
 
 getWeather();
@@ -154,7 +153,6 @@ export default async function handler(req, res) {
     case "GET":
       try {
         const json = await data_Json();
-        console.log(json)
         res.status(200).json({ success: true, data: json });
       } catch (error) {
         console.log("catch", error);

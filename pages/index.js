@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 const Home = () => {
   const [kmls, setKmls] = useState([]);
 
-
   useEffect(() => {
     const fetchKmls = async () => {
       const response = await axios.get("http://localhost:3000/api/kmls");
@@ -19,17 +18,10 @@ const Home = () => {
 
   const listArray = kmls.map((kml) => kml);
   console.log(listArray)
-  // const items = kmls.slice(0, 10);
-  // console.log("222222", items);
+
 
   return (
     <div>
-      {/* <h1>hello</h1>
-      {items.map((item, index) => (
-        <h1 key={index}>
-          {item.center_of_map.latitude} / {item.center_of_map.longitude}
-        </h1>
-      ))} */}
       <MyComponent kmls={listArray} />
     </div>
   );
