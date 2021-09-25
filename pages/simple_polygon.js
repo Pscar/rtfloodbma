@@ -1,3 +1,14 @@
+// import React from 'react'
+
+export default function simple_polygon() {
+  return (
+    <div>
+      <h1>simple_polygon</h1>
+    </div>
+  )
+}
+
+
 // import { GoogleMap, useLoadScript, Polygon } from "@react-google-maps/api";
 
 // const libraries = ["places", "geometry"];
