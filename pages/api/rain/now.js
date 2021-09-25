@@ -9,13 +9,12 @@ const get_rain = async () => {
     const res = await req;
     const datas = res.data.data;
     let data = datas.filter(data => data.geocode.amphoe_name.th === 'ทุ่งสง');
-    const items = data.slice(-1);
 
     for (let item of data) {
       item._id = `${item.id}_${item.station.id}`;
     }
 
-    return items;
+    return data;
   } catch (error) {
     console.log(error)
   }

@@ -14,11 +14,8 @@ const get_rain = async () => {
       return station.station
     }))
     
-    for (let item of data) {
-      item._id = `${item.id}_${item.station.id}`;
-    }
-
     return stations;
+
   } catch (error) {
     console.log(error)
   }

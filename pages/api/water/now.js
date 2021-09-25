@@ -8,15 +8,13 @@ const get_water = async () => {
     const req = axios.get('http://api2.thaiwater.net:9200/api/v1/thaiwater30/public/waterlevel_load');
     const res = await req;
     const datas = res.data.waterlevel_data.data;
-    const items = datas.slice(-1);
 
     let data = datas.filter(data => data.station.tele_station_name.th === 'ทุ่งสง');
-
 
     for (let item of data) {
       item._id = `${item.id}_${item.station.id}`;
     }
-    return items;
+    return data;
 
   } catch (error) {
     console.log(error)
