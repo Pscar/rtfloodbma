@@ -3,7 +3,8 @@ const fs = require('fs');
 export default async function handler(req, res) {
     // const url = "https://dataapi.moc.go.th/gis-products?keyword=ข้าว&sell_type=wholesale";
 
-    const url = "http://localhost:3000/json/product-rice.json";
+    // const url = "http://localhost:3000/json/product-rice.json";
+    const url = process.env.HOST+"/json/product-rice.json";
     let promiseA = await fetch(encodeURI(url));
     let data = await promiseA.json();
     let filtered_data = data.filter(function (item) {
