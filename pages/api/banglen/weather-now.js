@@ -7,9 +7,9 @@ const part = "current";
 const APIkey = "8b77bc404e99340e0ebdd43aa0078020";
 const lang = "th";
 const units = "metric";
-// const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${part}&appid=${APIkey}&lang=${lang}&units=${units}`;
+const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${part}&appid=${APIkey}&lang=${lang}&units=${units}`;
 // const url = "http://localhost:3000/json/weather.json";
-const url = process.env.HOST+"/json/weather.json";
+// const url = process.env.HOST+"/json/weather.json";
 
 // https://stackoverflow.com/questions/44177417/how-to-display-openweathermap-weather-icon
 //ตัวอย่าง ICON IMG เอา icon code มาใส่เป็นชื่อไฟล์
